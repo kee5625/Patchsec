@@ -13,7 +13,7 @@ MAX_BLOB_BYTES = 100_000  # skip files larger than this
 
 
 def parse_repo(git_url: str) -> tuple[str, str]:
-    m = re.search(r"github\.com[:/]([^/]+)/([^/.]+)", git_url)
+    m = re.search(r"github\.com[:/]([^/]+)/([^/]+?)(?:\.git)?/?$", git_url.strip())
     if not m:
         raise HTTPException(400, f"Not a GitHub URL: {git_url}")
     return m.group(1), m.group(2)
