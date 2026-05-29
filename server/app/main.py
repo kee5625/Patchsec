@@ -2,7 +2,7 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from app.config import settings
 from app.middleware import register_middleware
-from app.routers import health
+from app.routers import analyzer, health
 
 
 @asynccontextmanager
@@ -21,3 +21,4 @@ app = FastAPI(
 register_middleware(app)
 
 app.include_router(health.router)
+app.include_router(analyzer.router)

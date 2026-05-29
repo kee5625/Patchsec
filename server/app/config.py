@@ -9,9 +9,9 @@ class Settings(BaseSettings):
     environment: str = "development"
     debug: bool = False
 
-    # Add your settings below
-    # database_url: str
-    # secret_key: str
+    github_token: str | None = None
+    openai_api_key: str | None = None
+    openai_model: str = "gpt-4o"
 
 
 settings = Settings()
